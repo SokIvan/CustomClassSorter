@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Driver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Route.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/BinarySearch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/FileWorker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomCollection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/CarFile.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/DriverFile.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/RoadFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,21 +15,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Doobyss"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Doobyss&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SokIvan/CustomClassSorter.git",
-    "accountId": "ed7cf738-ebbc-4697-969e-6bf731a61600"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SokIvan/CustomClassSorter.git&quot;,
+    &quot;accountId&quot;: &quot;ed7cf738-ebbc-4697-969e-6bf731a61600&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="33HN0kj89gvDDBGXWKjizohheLW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,14 +38,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/PC/Documents/GitHub/CustomClassSorter",
-    "project.structure.last.edited": "Проект",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.last.edited": "Модули",
+    "project.structure.proportion": "0.090909064",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Documents\GitHub" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="CustomClassSorter" />
