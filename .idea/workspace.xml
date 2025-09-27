@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/customClasses/Route.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/BinarySearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/FileWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomCollection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/CarFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/DriverFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Standart/RoadFile.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Doobyss"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SokIvan/CustomClassSorter.git",
+    "accountId": "ed7cf738-ebbc-4697-969e-6bf731a61600"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="33HN0kj89gvDDBGXWKjizohheLW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/PC/Documents/GitHub/CustomClassSorter",
+    "project.structure.last.edited": "Проект",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CustomClassSorter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CustomClassSorter" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Задача по умолчанию">
+      <changelist id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="" />
+      <created>1758969816631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758969816631</updated>
+    </task>
+    <servers />
+  </component>
+</project>
