@@ -84,7 +84,7 @@ public class Car {
     public String toString(){
         String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
         String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
-        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽",getModel(),getGosNumber(),getDate(),lastOwner,cost);
+        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\n",getModel(),getGosNumber(),getDate(),lastOwner,cost);
     }
 
     public String getLastOwner() {

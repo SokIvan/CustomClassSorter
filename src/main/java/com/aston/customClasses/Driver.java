@@ -67,7 +67,7 @@ public class Driver {
     public String toString(){
         String age = getAge()!=-1?(getAge()+""):"-Неизвестно-";
         String rate = getRate()!=-1?(getRate()+""):"-Неизвестно-";
-        return String.format("\n%s\nВозраст:%s\nКатегория:%s\nСтаж:%s лет\nРейтинг:%s⭐",getName(),getAge(),getCategory(),getExperience(),getRate());
+        return String.format("\n%s\nВозраст:%s\nКатегория:%s\nСтаж:%s лет\nРейтинг:%s⭐\n",getName(),getAge(),getCategory(),getExperience(),getRate());
     }
 
 

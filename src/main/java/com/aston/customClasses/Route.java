@@ -67,7 +67,7 @@ public class Route {
     public String toString(){
         String distanse = getDistanse()!=-1?(getDistanse()+""):"-Неизвестно-";
         String passengers = getPassengers()!=-1?(getPassengers()+""):"-Неизвестно-";
-        return String.format("Маршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
+        return String.format("\nМаршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км\n",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
     }
 
 
