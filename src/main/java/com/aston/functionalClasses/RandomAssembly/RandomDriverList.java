@@ -2,7 +2,10 @@ package com.aston.functionalClasses.RandomAssembly;
 
 import com.aston.customClasses.Driver;
 
-public class RandomDriverArray extends RandomArray {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RandomDriverList extends RandomList {
 
     private static final String[] CATEGORIES = {"B", "B,C", "B,D", "B,C,D"};
     private static final int LEGAL_AGE = 18;
@@ -13,9 +16,9 @@ public class RandomDriverArray extends RandomArray {
     private static final double MIN_RATE = 3.0d;
     private static final double MAX_RATE = 5.0d;
 
-    public static Driver[] create() {
+    public static List<Driver> create() {
         int length = getIntInRange(MIN_LENGTH, MAX_LENGTH);
-        Driver[] drivers = new Driver[length];
+        List<Driver> drivers = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             Driver.DriverBuilder builder = new Driver.DriverBuilder()
                     .setName(getName())
@@ -26,7 +29,7 @@ public class RandomDriverArray extends RandomArray {
             if (Math.random() > 0.5) {
                 builder.setRate(getRate());
             }
-            drivers[i] = builder.build();
+            drivers.add(builder.build());
         }
         return drivers;
     }

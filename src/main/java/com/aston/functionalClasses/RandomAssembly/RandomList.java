@@ -2,7 +2,7 @@ package com.aston.functionalClasses.RandomAssembly;
 
 import java.util.Random;
 
-public abstract class RandomArray {
+public abstract class RandomList {
     protected static int MIN_LENGTH = 3;
     protected static int MAX_LENGTH = 10;
     protected static final String[] NAMES = {"Соловьева И.П.", "Иванов И.И.", "Петров П.А.", "Сидоров Н.Н.", "Кузнецов А.А", "Калинина М.И.", "Николаева Т.А.", "Миронов Е.И.", "Ким А.А.", "Королев П.Г.", "Амарян Г.Г.", "Антонова И.И."};

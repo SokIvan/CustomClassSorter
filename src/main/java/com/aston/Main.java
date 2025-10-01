@@ -5,22 +5,23 @@ import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
 import com.aston.functionalClasses.FileWorker;
-import com.aston.functionalClasses.RandomAssembly.RandomCarArray;
-import com.aston.functionalClasses.RandomAssembly.RandomDriverArray;
+import com.aston.functionalClasses.RandomAssembly.RandomCarList;
+import com.aston.functionalClasses.RandomAssembly.RandomDriverList;
 import com.aston.functionalClasses.RandomAssembly.RandomRouteArray;
 import com.aston.functionalClasses.SortCreator;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] configuration){
-        Car[] cars = RandomCarArray.create();
-        System.out.println(Arrays.toString(cars));
+        List<Car> cars = RandomCarList.create();
+        System.out.println(cars);
 
-        Driver[] drivers  = RandomDriverArray.create();
-        System.out.println(Arrays.toString(drivers));
+        List<Driver> drivers = RandomDriverList.create();
+        System.out.println(drivers);
 
-        Route[] routes  = RandomRouteArray.create();
-        System.out.println(Arrays.toString(routes));
+        List<Route> routes  = RandomRouteArray.create();
+        System.out.println(routes);
         //debug_main();
     }
 

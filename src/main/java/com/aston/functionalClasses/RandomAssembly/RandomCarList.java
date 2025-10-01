@@ -2,16 +2,19 @@ package com.aston.functionalClasses.RandomAssembly;
 
 import com.aston.customClasses.Car;
 
-public class RandomCarArray extends RandomArray {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RandomCarList extends RandomList {
     private static final int MIN_RELEASE_YEAR = 1980;
     private static final int MAX_RELEASE_YEAR = 2025;
     private static final int MIN_COST = 400000;
     private static final int MAX_COST = 3000000;
     private static final char[] STATE_NUM_LETTERS = {'А', 'В', 'Е', 'К', 'М', 'Н', 'О', 'Р', 'С', 'Т', 'У', 'Х'};
 
-    public static Car[] create(){
+    public static List<Car> create(){
         int length = getIntInRange(MIN_LENGTH, MAX_LENGTH);
-        Car[] cars = new Car[length];
+        List<Car> cars = new ArrayList<>();
         for(int i = 0; i < length; i ++){
             Car.CarBuilder builder = new Car.CarBuilder()
                     .setModel(getModel())
@@ -23,7 +26,7 @@ public class RandomCarArray extends RandomArray {
             if(Math.random() > 0.5){
                 builder.setLastOwner(getName());
             }
-            cars[i] = builder.build();
+            cars.add(builder.build());
         }
         return cars;
     }
@@ -33,7 +36,7 @@ public class RandomCarArray extends RandomArray {
          if (i < 1 || i > 3)
              stateNum[i] = getRandomConst(STATE_NUM_LETTERS);
          else
-             stateNum[i] = (char)(getIntInRange(0,10) + '0');
+             stateNum[i] = (char)(getIntInRange(0,9) + '0');
         }
         return new String(stateNum);
     }

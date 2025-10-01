@@ -1,11 +1,11 @@
 package com.aston.functionalClasses.RandomAssembly;
-import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
 
-import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-public class RandomRouteArray extends RandomArray{
+public class RandomRouteArray extends RandomList{
     private static final int MIN_PASSENGERS = 1;
     private static final int MAX_PASSENGERS = 8;
     private static final Map<String, Integer> ROUTES = Map.of(
@@ -21,9 +21,9 @@ public class RandomRouteArray extends RandomArray{
             "Тверь -> Рязань", 392
     );
 
-    public static Route[] create() {
+    public static List<Route> create() {
         int length = getIntInRange(MIN_LENGTH, MAX_LENGTH);
-        Route[] routes = new Route[length];
+        List<Route> routes = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             Route.RouteBuilder builder = new Route.RouteBuilder()
                     .setDriverName(getName())
@@ -35,7 +35,7 @@ public class RandomRouteArray extends RandomArray{
             if (Math.random() > 0.5) {
                 builder.setPassengers(getIntInRange(MIN_PASSENGERS, MAX_PASSENGERS));
             }
-            routes[i] = builder.build();
+            routes.add(builder.build());
         }
         return routes;
     }
