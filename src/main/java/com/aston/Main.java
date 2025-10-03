@@ -4,6 +4,7 @@ import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
 import com.aston.functionalClasses.ParallelBubbleSort;
+import com.aston.functionalClasses.ParallelEvenBubbleSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class Main {
         r1.setDriverName("Иван");
         r1.setCarName("BMW");
         r1.setRoadName("Москва->СПб");
-        r1.setDistanse(700);
+        r1.setDistanse(700);   // чётное → сортируется
         r1.setPassengers(3);
         routes.add(r1.build());
 
@@ -76,17 +77,36 @@ public class Main {
         r2.setDriverName("Петр");
         r2.setCarName("Audi");
         r2.setRoadName("Казань->Уфа");
-        r2.setDistanse(500);
+        r2.setDistanse(500);   // чётное → сортируется
         r2.setPassengers(2);
         routes.add(r2.build());
+
+        Route.RouteBuilder r3 = Route.builder();
+        r3.setDriverName("Олег");
+        r3.setCarName("Жигули");
+        r3.setRoadName("Астана->Владивосток");
+        r3.setDistanse(1101);  // нечётное → остаётся на месте
+        r3.setPassengers(2);
+        routes.add(r3.build());
+
+        Route.RouteBuilder r4 = Route.builder();
+        r4.setDriverName("Вадим");
+        r4.setCarName("Волга");
+        r4.setRoadName("Екб->Челябинск");
+        r4.setDistanse(233);   // нечётное → остаётся на месте
+        r4.setPassengers(2);
+        routes.add(r4.build());
 
         System.out.println("\nДо сортировки (маршруты):");
         routes.forEach(System.out::println);
 
-        // сортировка маршрутов по дистанции через компаратор Route
-        ParallelBubbleSort.parallelBubbleSort(routes, Route.compareByDistanceAndPassengersCustom());
+        ParallelEvenBubbleSort.parallelEvenBubbleSort(
+                routes,
+                Route::getDistanse,                          // чётность проверяется по дистанции
+                Route.compareByDistanceAndPassengersCustom() // сортировка чётных по расстоянию и пассажирам
+        );
 
-        System.out.println("\nПосле сортировки маршрутов по длине:");
+        System.out.println("\nПосле сортировки маршрутов (чётные сортируются, нечётные остаются на месте):");
         routes.forEach(System.out::println);
     }
 }
