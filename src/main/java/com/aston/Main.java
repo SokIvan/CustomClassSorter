@@ -63,9 +63,7 @@ public class Main {
 
         List<Route> routes  = RandomRouteArray.create();
         System.out.println(routes);
-        //debug_main();*/
-
-
+        //debug_main();
     }
 
         // --- Routes ---
