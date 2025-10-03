@@ -20,7 +20,7 @@ public class Main {
         boolean running = true;
 
         while (running) {
-            System.out.println("=== Главное меню ===");
+            System.out.println("\n=== Главное меню ===");
             System.out.println("1 - Ввести данные о машинах");
             System.out.println("2 - Ввести данные о маршрутах");
             System.out.println("3 - Ввести данные о водителях");
@@ -32,11 +32,11 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> cars = Controller.createCars();
-                case 2 -> routes = Controller.createRoutes();
-                case 3 -> drivers = Controller.createDrivers();
+                case 1 -> cars = Controller.createCars(scanner);
+                case 2 -> routes = Controller.createRoutes(scanner);
+                case 3 -> drivers = Controller.createDrivers(scanner);
                 case 4 -> {
-                    System.out.println("=== Текущие данные ===");
+                    System.out.println("\n=== Текущие данные ===");
                     if (!cars.isEmpty()) {
                         System.out.println("Машины:");
                         cars.forEach(System.out::println);
@@ -54,5 +54,6 @@ public class Main {
                 default -> System.out.println("Некорректный ввод!");
             }
         }
+        System.out.println("Программа завершена.");
     }
 }

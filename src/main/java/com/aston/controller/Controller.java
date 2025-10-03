@@ -9,9 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
-    private static final Scanner scanner = new Scanner(System.in);
 
-    public static List<Car> createCars() {
+    public static List<Car> createCars(Scanner scanner) {
         System.out.print("Введите количество машин: ");
         int count = scanner.nextInt();
         scanner.nextLine();
@@ -45,7 +44,7 @@ public class Controller {
         return cars;
     }
 
-    public static List<Driver> createDrivers() {
+    public static List<Driver> createDrivers(Scanner scanner) {
         System.out.print("Введите количество водителей: ");
         int count = scanner.nextInt();
         scanner.nextLine();
@@ -79,7 +78,7 @@ public class Controller {
         return drivers;
     }
 
-    public static List<Route> createRoutes() {
+    public static List<Route> createRoutes(Scanner scanner) {
         System.out.print("Введите количество маршрутов: ");
         int count = scanner.nextInt();
         scanner.nextLine();
