@@ -14,7 +14,6 @@ public class BinarySearchByFields<T, K>{
                 return -1;
         }
         int m = l + (r - l) / 2;
-
         if (valueToFind.compareTo((K) fieldWhereFind.get(values.get(m))) > 0) {
             return binarySearch(values, fieldWhereFind, valueToFind, m + 1, r);
         } else if (valueToFind.compareTo((K) fieldWhereFind.get(values.get(m))) < 0) {

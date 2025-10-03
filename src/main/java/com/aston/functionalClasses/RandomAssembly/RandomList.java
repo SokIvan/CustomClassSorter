@@ -9,6 +9,7 @@ public abstract class RandomList {
     protected static final String[] MODELS = {"Mercedes", "BMW", "Toyota", "Audi", "Volvo", "Volkswagen", "Skoda", "KIA", "Alfa Romeo", "Opel"};
     protected static Random random = new Random();
 
+
     protected static String getModel(){
         return getRandomConst(MODELS);
     }

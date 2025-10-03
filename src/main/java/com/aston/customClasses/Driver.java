@@ -148,6 +148,7 @@ public class Driver {
                 throw new RuntimeException("Рейтинг водителя должен быть в диапазоне от 0.0 до 5.0 включительно!");
             else return new Driver(this);
         }
+
     }
 
 }

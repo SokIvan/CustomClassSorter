@@ -12,7 +12,6 @@ public class BinarySearch<T>{
                 return -1;
         }
         int m = l + (r - l) / 2;
-
         if (comparator.compare(valueToFind, values.get(m)) > 0) {
             return binarySearch(values, valueToFind, m + 1, r, comparator);
         } else if (comparator.compare(valueToFind, values.get(m)) < 0) {

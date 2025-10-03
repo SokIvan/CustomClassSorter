@@ -92,7 +92,6 @@ public class Car {
         return cost;
     }
 
-
 // У каждого свое понятие вывода. Сделаете как вам удобнее через Геттеры
     @Override
     public String toString(){

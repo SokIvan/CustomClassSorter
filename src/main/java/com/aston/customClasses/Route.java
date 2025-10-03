@@ -54,7 +54,6 @@ public class Route {
         };
     }
 
-
     public static RouteBuilder builder(){
         return new RouteBuilder();
     }
@@ -109,7 +108,6 @@ public class Route {
     public int getPassengers() {
         return passengers;
     }
-
 
     public static class RouteBuilder{
         private String driverName;
