@@ -61,6 +61,10 @@ public class Main {
         System.out.println("\nПосле сортировки водителей по стажу:");
         drivers.forEach(System.out::println);
 
+        List<Route> routes  = RandomRouteArray.create();
+        System.out.println(routes);
+        //debug_main();
+    }
 
         // --- Routes ---
         List<Route> routes = new ArrayList<>();
