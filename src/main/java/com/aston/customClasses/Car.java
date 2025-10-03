@@ -2,6 +2,7 @@ package com.aston.customClasses;
 
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Car {
     private final String gosNumber;//Номер машины
@@ -49,6 +50,20 @@ public class Car {
             }
         };
     }
+    public static Comparator<Car> compare() {
+        // Создаем анонимный класс Comparator
+        return new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                if(car1.equals(car2))
+                    return 0;
+                else if (car1.hashCode() > car2.hashCode())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+    }
 
     private Car(CarBuilder carBuilder){
             this.gosNumber = carBuilder.gosNumber;
@@ -85,6 +100,33 @@ public class Car {
         String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
         String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
         return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\n",getModel(),getGosNumber(),getDate(),lastOwner,cost);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = gosNumber != null ? gosNumber.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (lastOwner != null ? lastOwner.hashCode() : 0);
+        result = 31 * result + cost;
+        result = 31 * result + date;
+        return result;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return cost == car.cost &&
+                date == car.date &&
+                Objects.equals(gosNumber, car.gosNumber) &&
+                Objects.equals(model, car.model) &&
+                Objects.equals(lastOwner, car.lastOwner);
+    }
+
+    public String toStringWithHash(){
+        String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
+        String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
+        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\nHashCode:%s\n",getModel(),getGosNumber(),getDate(),lastOwner,cost, hashCode());
     }
 
     public String getLastOwner() {

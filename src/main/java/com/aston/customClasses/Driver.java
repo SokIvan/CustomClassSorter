@@ -1,7 +1,6 @@
 package com.aston.customClasses;
-
-
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Driver {
     private final String name;//имя водителя, можно ник, можно фио
@@ -31,12 +30,19 @@ public class Driver {
             }
         };
     }
-
-
-
-
-
-
+    public static Comparator<Driver> compare() {
+        return new Comparator<Driver>() {
+            @Override
+            public int compare(Driver driver1, Driver driver2) {
+                if(driver1.equals(driver2))
+                    return 0;
+                else if (driver1.hashCode() > driver2.hashCode())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+    }
 
     private Driver(DriverBuilder driverBuilder){
         this.name = driverBuilder.name;
@@ -70,6 +76,28 @@ public class Driver {
         return String.format("\n%s\nВозраст:%s\nКатегория:%s\nСтаж:%s лет\nРейтинг:%s⭐\n",getName(),getAge(),getCategory(),getExperience(),getRate());
     }
 
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(name);
+        result = 31 * result + Objects.hashCode(category);
+        result = 31 * result + experience;
+        result = 31 * result + age;
+        result = 31 * result + Double.hashCode(rate);
+        return result;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Driver driver = (Driver) o;
+
+        return experience == driver.experience &&
+                age == driver.age &&
+                Double.compare(driver.rate, rate) == 0 &&
+                Objects.equals(name, driver.name) &&
+                Objects.equals(category, driver.category);
+    }
 
     public int getAge() {
         return age;
