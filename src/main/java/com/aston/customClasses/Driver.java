@@ -127,9 +127,6 @@ public class Driver {
             this.experience = experience;
             return this;
         }
-        public Driver build(){
-            return new Driver(this);
-        }
 
         public DriverBuilder setAge(int age) {
             this.age = age;
@@ -139,6 +136,17 @@ public class Driver {
         public DriverBuilder setRate(double rate) {
             this.rate = rate;
             return this;
+        }
+        public Driver build() {
+            if (this.name == null || this.category == null || this.experience == 0)
+                throw new RuntimeException("Зполните все обязательные параметры: Имя, категория и водительский стаж!");
+            else if(this.age < 21 || this.age > 100)
+                throw new RuntimeException("Возраст должен быть в диапазоне 21-100 лет включительно!");
+            else if(this.age - this.experience < 18)
+                throw new RuntimeException("Некорректный водительский стаж, водить можно с 18 лет!");
+            else if(this.rate != 0 && (this.rate > 5 || this.rate < 0))
+                throw new RuntimeException("Рейтинг водителя должен быть в диапазоне от 0.0 до 5.0 включительно!");
+            else return new Driver(this);
         }
     }
 

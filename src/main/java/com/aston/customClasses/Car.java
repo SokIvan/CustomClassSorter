@@ -71,7 +71,6 @@ public class Car {
             this.date = carBuilder.date;
             this.cost = carBuilder.cost;
             this.lastOwner = carBuilder.lastOwner;
-
     }
 
     public static CarBuilder builder(){
@@ -167,7 +166,8 @@ public class Car {
                                                                            //Допустим -1 недопустимое число, не позволяйте пользователям его вводить
                 return new Car(this);
             }
-            return null;
+            else
+                throw new RuntimeException("Зполните все обязательные параметры: Гос. номер, модель и год выпуска!");
         }
         
     }

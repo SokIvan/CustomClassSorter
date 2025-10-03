@@ -130,16 +130,21 @@ public class Route {
             this.roadName = roadName;
             return this;
         }
-        public Route build(){
-            return new Route(this);
-        }
-
         public void setDistanse(int distanse) {
             this.distanse = distanse;
         }
 
         public void setPassengers(int passengers) {
             this.passengers = passengers;
+        }
+
+        public Route build(){
+            if (this.driverName == null || this.carName == null || this.roadName == null)
+                throw new RuntimeException("Зполните все обязательные параметры: имя водителя, модель автомобиля, маршрут");
+            else if(this.distanse < 0)
+                throw new RuntimeException("Дистанция не может быть меньше 0!");
+            else
+                return new Route(this);
         }
     }
 

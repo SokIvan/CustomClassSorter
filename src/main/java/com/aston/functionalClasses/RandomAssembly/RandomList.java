@@ -10,12 +10,11 @@ public abstract class RandomList {
     protected static Random random = new Random();
 
     protected static String getModel(){
-        return MODELS[(int)(Math.random() * MODELS.length)];
+        return getRandomConst(MODELS);
     }
     protected static String getName(){
         return getRandomConst(NAMES);
     }
-
     protected static int getIntInRange(int minVal, int maxVal){
         return random.nextInt(maxVal - minVal + 1) + minVal;
     }
