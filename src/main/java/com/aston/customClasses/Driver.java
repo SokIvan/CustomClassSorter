@@ -9,24 +9,6 @@ public class Driver {
     private final int age; // возраст водителя          ---аккуратнее с рандомом, а то лет 40, а стаж 25 нехорошо---
     private final double rate; // рейтинг водителя
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Driver driver = (Driver) obj;
-        return experience == driver.experience &&
-                age == driver.age &&
-                Double.compare(driver.rate, rate) == 0 &&
-                Objects.equals(name, driver.name) &&
-                Objects.equals(category, driver.category);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, category, experience, age, rate);
-    }
-
-
     public static Comparator<Driver> compareByName() {
         return Comparator.comparing(Driver::getName);
     }
@@ -166,7 +148,5 @@ public class Driver {
                 throw new RuntimeException("Рейтинг водителя должен быть в диапазоне от 0.0 до 5.0 включительно!");
             else return new Driver(this);
         }
-
     }
-
 }
