@@ -4,48 +4,19 @@ import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Controller {
-    private final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    // поля для хранения массивов
-    private Car[] cars;
-    private Driver[] drivers;
-    private Route[] routes;
-
-    public void start() {
-        boolean running = true;
-
-        while (running) {
-            System.out.println("=== Главное меню ===");
-            System.out.println("1 - Ввести данные о машинах");
-            System.out.println("2 - Ввести данные о маршрутах");
-            System.out.println("3 - Ввести данные о водителях");
-            System.out.println("4 - Показать все данные");
-            System.out.println("0 - Выход");
-            System.out.print("Выберите действие: ");
-
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (choice) {
-                case 1 -> createCars();
-                case 2 -> createRoutes();
-                case 3 -> createDrivers();
-                case 4 -> showAll();
-                case 0 -> running = false;
-                default -> System.out.println("Некорректный ввод!");
-            }
-        }
-    }
-
-    private void createCars() {
+    public static List<Car> createCars() {
         System.out.print("Введите количество машин: ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
-        cars = new Car[count];
+        List<Car> cars = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
             System.out.println("=== Машина " + (i + 1) + " ===");
@@ -67,18 +38,19 @@ public class Controller {
             builder.setDate(scanner.nextInt());
             scanner.nextLine();
 
-            cars[i] = builder.build();
+            cars.add(builder.build());
         }
 
-        System.out.println("Создано " + cars.length + " машин.");
+        System.out.println("Создано " + cars.size() + " машин.");
+        return cars;
     }
 
-    private void createDrivers() {
+    public static List<Driver> createDrivers() {
         System.out.print("Введите количество водителей: ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
-        drivers = new Driver[count];
+        List<Driver> drivers = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
             System.out.println("=== Водитель " + (i + 1) + " ===");
@@ -100,18 +72,19 @@ public class Controller {
             builder.setRate(scanner.nextDouble());
             scanner.nextLine();
 
-            drivers[i] = builder.build();
+            drivers.add(builder.build());
         }
 
-        System.out.println("Создано " + drivers.length + " водителей.");
+        System.out.println("Создано " + drivers.size() + " водителей.");
+        return drivers;
     }
 
-    private void createRoutes() {
+    public static List<Route> createRoutes() {
         System.out.print("Введите количество маршрутов: ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
-        routes = new Route[count];
+        List<Route> routes = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
             System.out.println("=== Маршрут " + (i + 1) + " ===");
@@ -133,31 +106,10 @@ public class Controller {
             builder.setPassengers(scanner.nextInt());
             scanner.nextLine();
 
-            routes[i] = builder.build();
+            routes.add(builder.build());
         }
 
-        System.out.println("Создано " + routes.length + " маршрутов.");
-    }
-
-    private void showAll() {
-        System.out.println("=== Текущие данные ===");
-        if (cars != null) {
-            System.out.println("Машины:");
-            for (Car c : cars) {
-                System.out.println(c);
-            }
-        }
-        if (drivers != null) {
-            System.out.println("Водители:");
-            for (Driver d : drivers) {
-                System.out.println(d);
-            }
-        }
-        if (routes != null) {
-            System.out.println("Маршруты:");
-            for (Route r : routes) {
-                System.out.println(r);
-            }
-        }
+        System.out.println("Создано " + routes.size() + " маршрутов.");
+        return routes;
     }
 }
