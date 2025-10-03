@@ -19,6 +19,24 @@ public class Route {
         this.passengers = routeBuilder.passengers;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Route route = (Route) obj;
+        return distanse == route.distanse &&
+                passengers == route.passengers &&
+                Objects.equals(driverName, route.driverName) &&
+                Objects.equals(carName, route.carName) &&
+                Objects.equals(roadName, route.roadName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(driverName, carName, roadName, distanse, passengers);
+    }
+
+
     public static Comparator<Route> compareByDriverName() {
         return Comparator.comparing(Route::getDriverName);
     }

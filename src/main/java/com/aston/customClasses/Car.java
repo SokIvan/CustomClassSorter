@@ -11,7 +11,22 @@ public class Car {
     private final int cost;//Цена машины
     private final int date;//Год выпуска
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return cost == car.cost &&
+                date == car.date &&
+                Objects.equals(gosNumber, car.gosNumber) &&
+                Objects.equals(model, car.model) &&
+                Objects.equals(lastOwner, car.lastOwner);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(gosNumber, model, lastOwner, cost, date);
+    }
 
     public static Comparator<Car> compareByGosNumber() {
         return Comparator.comparing(Car::getGosNumber);
