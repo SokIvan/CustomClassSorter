@@ -2,6 +2,7 @@ package com.aston.customClasses;
 
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Car {
     private final String gosNumber;//Номер машины
@@ -10,7 +11,22 @@ public class Car {
     private final int cost;//Цена машины
     private final int date;//Год выпуска
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return cost == car.cost &&
+                date == car.date &&
+                Objects.equals(gosNumber, car.gosNumber) &&
+                Objects.equals(model, car.model) &&
+                Objects.equals(lastOwner, car.lastOwner);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(gosNumber, model, lastOwner, cost, date);
+    }
 
     public static Comparator<Car> compareByGosNumber() {
         return Comparator.comparing(Car::getGosNumber);
@@ -84,7 +100,7 @@ public class Car {
     public String toString(){
         String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
         String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
-        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽",getModel(),getGosNumber(),getDate(),lastOwner,cost);
+        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\n",getModel(),getGosNumber(),getDate(),lastOwner,cost);
     }
 
     public String getLastOwner() {

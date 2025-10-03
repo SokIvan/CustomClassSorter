@@ -1,6 +1,7 @@
 package com.aston.customClasses;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Route {
     private final String driverName;//Имя водителя
@@ -17,6 +18,24 @@ public class Route {
         this.distanse = routeBuilder.distanse;
         this.passengers = routeBuilder.passengers;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Route route = (Route) obj;
+        return distanse == route.distanse &&
+                passengers == route.passengers &&
+                Objects.equals(driverName, route.driverName) &&
+                Objects.equals(carName, route.carName) &&
+                Objects.equals(roadName, route.roadName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(driverName, carName, roadName, distanse, passengers);
+    }
+
 
     public static Comparator<Route> compareByDriverName() {
         return Comparator.comparing(Route::getDriverName);
@@ -67,7 +86,7 @@ public class Route {
     public String toString(){
         String distanse = getDistanse()!=-1?(getDistanse()+""):"-Неизвестно-";
         String passengers = getPassengers()!=-1?(getPassengers()+""):"-Неизвестно-";
-        return String.format("Маршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
+        return String.format("\nМаршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км\n",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
     }
 
 
