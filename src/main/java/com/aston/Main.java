@@ -5,6 +5,7 @@ import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
 import com.aston.functionalClasses.ParallelBubbleSort;
 import com.aston.functionalClasses.ParallelEvenBubbleSort;
+import com.aston.functionalClasses.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,37 +15,19 @@ public class Main {
 
         // --- Cars ---
         List<Car> cars = new ArrayList<>();
-        cars.add(Car.builder()
-                .setGosNumber("A111AA")
-                .setModel("bmw")
-                .setLastOwner("Иванов")
-                .setCost(30000)
-                .setDate(2015)
-                .build());
-        cars.add(Car.builder()
-                .setGosNumber("B222BB")
-                .setModel("audi")
-                .setLastOwner("Петров")
-                .setCost(25000)
-                .setDate(2012)
-                .build());
-        cars.add(Car.builder()
-                .setGosNumber("C333CC")
-                .setModel("mercedes")
-                .setLastOwner("Сидоров")
-                .setCost(10000)
-                .setDate(2018)
-                .build());
+        cars.add(Car.builder().setGosNumber("A111AA").setModel("bmw").setLastOwner("Иванов").setCost(30000).setDate(2015).build());
+        cars.add(Car.builder().setGosNumber("B222BB").setModel("audi").setLastOwner("Петров").setCost(25000).setDate(2012).build());
+        cars.add(Car.builder().setGosNumber("C333CC").setModel("mercedes").setLastOwner("Сидоров").setCost(10000).setDate(2018).build());
 
         System.out.println("До сортировки (машины):");
         cars.forEach(System.out::println);
 
-        // сортировка по цене с использованием компаратора из Car
-        ParallelBubbleSort.parallelBubbleSort(cars, Car.compareByModelCustom());
+        SortContext<Car> carSortContext = new SortContext<>();
+        carSortContext.setStrategy(new ParallelBubbleSortStrategy<>());
+        carSortContext.executeSort(cars, c -> 0, Car.compareByModelCustom());
 
         System.out.println("\nПосле сортировки по модели машины:");
         cars.forEach(System.out::println);
-
 
         // --- Drivers ---
         List<Driver> drivers = new ArrayList<>();
@@ -55,8 +38,9 @@ public class Main {
         System.out.println("\nДо сортировки (водители):");
         drivers.forEach(System.out::println);
 
-        // сортировка по стажу через компаратор из Driver
-        ParallelBubbleSort.parallelBubbleSort(drivers, Driver.compareByExperience());
+        SortContext<Driver> driverSortContext = new SortContext<>();
+        driverSortContext.setStrategy(new ParallelBubbleSortStrategy<>());
+        driverSortContext.executeSort(drivers, d -> 0, Driver.compareByExperience());
 
         System.out.println("\nПосле сортировки водителей по стажу:");
         drivers.forEach(System.out::println);
@@ -100,11 +84,9 @@ public class Main {
         System.out.println("\nДо сортировки (маршруты):");
         routes.forEach(System.out::println);
 
-        ParallelEvenBubbleSort.parallelEvenBubbleSort(
-                routes,
-                Route::getDistanse,                          // чётность проверяется по дистанции
-                Route.compareByDistanceAndPassengersCustom() // сортировка чётных по расстоянию и пассажирам
-        );
+        SortContext<Route> routeSortContext = new SortContext<>();
+        routeSortContext.setStrategy(new ParallelEvenBubbleSortStrategy<>());
+        routeSortContext.executeSort(routes, Route::getDistanse, Route.compareByDistanceAndPassengersCustom());
 
         System.out.println("\nПосле сортировки маршрутов (чётные сортируются, нечётные остаются на месте):");
         routes.forEach(System.out::println);

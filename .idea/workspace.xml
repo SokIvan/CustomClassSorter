@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/ParallelEvenBubbleSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/ParallelBubbleSortStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/ParallelEvenBubbleSortStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/QuickSortStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/SortCreator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/Bubble" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -30,12 +40,12 @@
     &quot;assignee&quot;: &quot;Doobyss&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SokIvan/CustomClassSorter.git",
-    "accountId": "6e3c18fa-df49-4e6f-9a60-47188bf5219f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SokIvan/CustomClassSorter.git&quot;,
+    &quot;accountId&quot;: &quot;6e3c18fa-df49-4e6f-9a60-47188bf5219f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -50,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feat/Bubble",
+    "git-widget-placeholder": "feat/SortStrategy",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/abzal/Documents/GitHub/CustomClassSorter",
     "project.structure.last.edited": "Модули",

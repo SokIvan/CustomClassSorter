@@ -6,12 +6,12 @@ import java.util.Collection;
 
 
 
-interface SortStrategy{
-    Collection<?> sort(Collection<?> collection);
-}
+//interface SortStrategy{
+//    Collection<?> sort(Collection<?> collection);
+//}
 
 // class SortCarStrategy implements SortStrategy{
-    
+
 //     @Override
 //     public Collection<Car> sort(Collection<?> collection){
 //         return null;
@@ -19,14 +19,14 @@ interface SortStrategy{
 // }
 
 // class SortDriverStrategy implements SortStrategy{
-    
+
 //     public Collection<Driver> sort(Collection<?> collection){
 //         return null;
 //     }
 // }
 
 // class SortRoadStrategy implements SortStrategy{
-    
+
 //     public Collection<Route> sort(Collection<?> collection){
 //         return null;
 //     }
@@ -50,7 +50,7 @@ public class SortCreator {
     }
 
 
-    
+
 
     // public Collection<?> sort(Collection<?> collection){
     //     if (collection == null || collection.isEmpty()) return null;
