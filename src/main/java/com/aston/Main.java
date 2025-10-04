@@ -3,10 +3,10 @@ package com.aston;
 import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
-import com.aston.functionalClasses.ParallelBubbleSortStrategy;
-import com.aston.functionalClasses.ParallelEvenBubbleSortStrategy;
-import com.aston.functionalClasses.QuickSortStrategy;
-import com.aston.functionalClasses.SortContext;
+import com.aston.functionalClasses.Sorting.ParallelBubbleSortStrategy;
+import com.aston.functionalClasses.Sorting.ParallelEvenBubbleSortStrategy;
+import com.aston.functionalClasses.Sorting.QuickSortEvenStrategy;
+import com.aston.functionalClasses.Sorting.SortContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Main {
         drivers.forEach(System.out::println);
 
         SortContext<Driver> driverSortContext = new SortContext<>();
-        driverSortContext.setStrategy(new QuickSortStrategy<>()); // Проверка быстрой сортировки
+        driverSortContext.setStrategy(new QuickSortEvenStrategy<>()); // Проверка быстрой сортировки
         driverSortContext.executeSort(drivers, d -> 0, Driver.compareByExperience());
 
         System.out.println("\nПосле сортировки водителей по стажу:");
