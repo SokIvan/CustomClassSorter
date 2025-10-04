@@ -1,7 +1,5 @@
 package com.aston.functionalClasses;
 
-import com.aston.functionalClasses.Sorting.SortStrategy;
-
 
 //interface SortStrategy{
 //    Collection<?> sort(Collection<?> collection);
