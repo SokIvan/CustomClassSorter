@@ -3,9 +3,10 @@ package com.aston;
 import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
-import com.aston.functionalClasses.ParallelBubbleSort;
-import com.aston.functionalClasses.ParallelEvenBubbleSort;
-import com.aston.functionalClasses.*;
+import com.aston.functionalClasses.Sorting.ParallelBubbleSortStrategy;
+import com.aston.functionalClasses.Sorting.ParallelEvenBubbleSortStrategy;
+import com.aston.functionalClasses.Sorting.QuickSortStrategy;
+import com.aston.functionalClasses.Sorting.SortContext;
 
 import java.util.ArrayList;
 import java.util.List;

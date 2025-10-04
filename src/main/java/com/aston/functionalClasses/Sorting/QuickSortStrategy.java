@@ -1,8 +1,6 @@
 
-package com.aston.functionalClasses;
+package com.aston.functionalClasses.Sorting;
 
-
-import com.aston.functionalClasses.QuickSort;
 
 import java.util.Comparator;
 import java.util.List;

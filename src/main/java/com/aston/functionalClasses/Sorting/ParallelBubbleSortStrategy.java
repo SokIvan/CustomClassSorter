@@ -1,6 +1,4 @@
-package com.aston.functionalClasses;
-
-import com.aston.functionalClasses.ParallelBubbleSort;
+package com.aston.functionalClasses.Sorting;
 
 import java.util.Comparator;
 import java.util.List;
