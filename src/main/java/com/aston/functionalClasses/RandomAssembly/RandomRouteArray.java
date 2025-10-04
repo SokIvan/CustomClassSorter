@@ -24,19 +24,22 @@ public class RandomRouteArray extends RandomList{
     public static List<Route> create() {
         int length = getIntInRange(MIN_LENGTH, MAX_LENGTH);
         List<Route> routes = new ArrayList<>();
-        for (int i = 0; i < length; i++) {
-            Route.RouteBuilder builder = new Route.RouteBuilder()
-                    .setDriverName(getName())
-                    .setCarName(getModel());
-            String [] roadKeyArray = ROUTES.keySet().toArray(new String[0]);
-            String roadName = getRandomConst(roadKeyArray);
-            builder.setRoadName(roadName);
-            builder.setDistanse(ROUTES.get(roadName));
-            if (Math.random() > 0.5) {
-                builder.setPassengers(getIntInRange(MIN_PASSENGERS, MAX_PASSENGERS));
-            }
-            routes.add(builder.build());
-        }
+        for (int i = 0; i < length; i++)
+            routes.add(getInstance());
         return routes;
+    }
+
+    public static Route getInstance(){
+        Route.RouteBuilder builder = new Route.RouteBuilder()
+                .setDriverName(getName())
+                .setCarName(getModel());
+        String [] roadKeyArray = ROUTES.keySet().toArray(new String[0]);
+        String roadName = getRandomConst(roadKeyArray);
+        builder.setRoadName(roadName);
+        builder.setDistanse(ROUTES.get(roadName));
+        if (Math.random() > 0.5) {
+            builder.setPassengers(getIntInRange(MIN_PASSENGERS, MAX_PASSENGERS));
+        }
+        return builder.build();
     }
 }
