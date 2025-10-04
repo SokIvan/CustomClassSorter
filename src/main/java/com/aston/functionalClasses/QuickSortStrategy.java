@@ -1,4 +1,4 @@
-/*
+
 package com.aston.functionalClasses;
 
 
@@ -14,4 +14,4 @@ public class QuickSortStrategy<T> implements SortStrategy<T> {
         QuickSort.quickSort(list, comparator); // вызов твоего алгоритма
     }
 }
-*/
+

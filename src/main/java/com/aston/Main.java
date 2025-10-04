@@ -23,7 +23,7 @@ public class Main {
         cars.forEach(System.out::println);
 
         SortContext<Car> carSortContext = new SortContext<>();
-        carSortContext.setStrategy(new ParallelBubbleSortStrategy<>());
+        carSortContext.setStrategy(new ParallelBubbleSortStrategy<>()); // проверка сортировки пузырьком
         carSortContext.executeSort(cars, c -> 0, Car.compareByModelCustom());
 
         System.out.println("\nПосле сортировки по модели машины:");
@@ -39,7 +39,7 @@ public class Main {
         drivers.forEach(System.out::println);
 
         SortContext<Driver> driverSortContext = new SortContext<>();
-        driverSortContext.setStrategy(new ParallelBubbleSortStrategy<>());
+        driverSortContext.setStrategy(new QuickSortStrategy<>()); // Проверка быстрой сортировки
         driverSortContext.executeSort(drivers, d -> 0, Driver.compareByExperience());
 
         System.out.println("\nПосле сортировки водителей по стажу:");
@@ -85,7 +85,7 @@ public class Main {
         routes.forEach(System.out::println);
 
         SortContext<Route> routeSortContext = new SortContext<>();
-        routeSortContext.setStrategy(new ParallelEvenBubbleSortStrategy<>());
+        routeSortContext.setStrategy(new ParallelEvenBubbleSortStrategy<>()); // проверка сортировки пузырьком для четных
         routeSortContext.executeSort(routes, Route::getDistanse, Route.compareByDistanceAndPassengersCustom());
 
         System.out.println("\nПосле сортировки маршрутов (чётные сортируются, нечётные остаются на месте):");
