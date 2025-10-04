@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/ParallelEvenBubbleSort.java" afterDir="false" />
+    <list default="true" id="34da5677-baca-4540-b1a5-7bdd4538f412" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/ThreadCounter/MultiThreadedCounterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/CarTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/RouteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearchByFields.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/ParallelBubbleSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/ParallelEvenBubbleSortTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,55 +30,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Doobyss&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SokIvan/CustomClassSorter.git",
-    "accountId": "6e3c18fa-df49-4e6f-9a60-47188bf5219f"
-  }
-}]]></component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="33HN0kj89gvDDBGXWKjizohheLW" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feat/Bubble",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/abzal/Documents/GitHub/CustomClassSorter",
-    "project.structure.last.edited": "Модули",
-    "project.structure.proportion": "0.090909064",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "Приложение.Main.executor": "Run"
+    "JUnit.BinarySearchByFieldsTest.executor": "Run",
+    "JUnit.BinarySearchTest.executor": "Run",
+    "JUnit.CarTest.executor": "Run",
+    "JUnit.DriverTest.executor": "Run",
+    "JUnit.MultiThreadedCounterTest.executor": "Run",
+    "JUnit.ParallelBubbleSortTest.executor": "Run",
+    "JUnit.ParallelEvenBubbleSortTest.executor": "Run",
+    "JUnit.RouteTest.executor": "Run",
+    "git-widget-placeholder": "karina-input",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\PC\Documents\GitHub" />
-    </key>
-  </component>
+}]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Задача по умолчанию">
-      <changelist id="1708e9f5-f127-4735-af5c-a36f63a3817b" name="Изменения" comment="" />
-      <created>1758969816631</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1758969816631</updated>
-    </task>
     <servers />
   </component>
 </project>
