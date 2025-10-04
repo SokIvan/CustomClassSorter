@@ -8,7 +8,8 @@ import java.util.concurrent.RecursiveAction;
 
 public class QuickSort {
 
-    private static final int THRESHOLD = 1000; // Для сортировки списков с малым количеством элементов переключаемся на однопоточный вариант
+    private static final int THRESHOLD = 10; // Для сортировки списков с малым количеством элементов переключаемся на однопоточный вариант.
+                                             // Оптимально 10000, но в рамках задания ставим 10
 
     private static final ForkJoinPool pool = new ForkJoinPool(4);
 
