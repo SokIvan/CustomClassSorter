@@ -1,6 +1,5 @@
 package com.aston.customClasses;
 
-
 import com.aston.customClasses.Driver;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +22,7 @@ public class DriverTest {
         Driver.DriverBuilder builder = Driver.builder();
         builder.setName("Ivan");
         builder.setCategory("B");
-        builder.setExperience(5);
+        builder.setExperience(10);
         builder.setAge(15); // слишком малый возраст
         try {
             Driver driver = builder.build();
@@ -37,7 +36,7 @@ public class DriverTest {
         Driver.DriverBuilder builder = Driver.builder();
         builder.setName("Ivan");
         builder.setCategory("B");
-        builder.setExperience(5);
+        builder.setExperience(10);
         builder.setAge(20); // возраст меньше 18+стаж
         try {
             Driver driver = builder.build();
@@ -51,8 +50,8 @@ public class DriverTest {
         Driver.DriverBuilder builder = Driver.builder();
         builder.setName("Ivan");
         builder.setCategory("B");
-        builder.setExperience(5);
-        builder.setAge(30);
+        builder.setExperience(10);
+        builder.setAge(25);
         builder.setRate(4.5);
 
         try {

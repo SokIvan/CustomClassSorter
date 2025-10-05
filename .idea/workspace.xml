@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34da5677-baca-4540-b1a5-7bdd4538f412" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/ThreadCounter/MultiThreadedCounterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/CarTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/RouteTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearchByFields.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/ParallelBubbleSortTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/ParallelEvenBubbleSortTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomRouteList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/StreamArrayList/MyArrayList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomCarList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomCarList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomDriverList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomDriverList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomRouteArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +30,58 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="33celuvUAmr5yt1fsfAaWqZ1Ns0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainTestRunner.executor": "Run",
     "JUnit.BinarySearchByFieldsTest.executor": "Run",
     "JUnit.BinarySearchTest.executor": "Run",
     "JUnit.CarTest.executor": "Run",
+    "JUnit.ControllerTest.executor": "Run",
     "JUnit.DriverTest.executor": "Run",
     "JUnit.MultiThreadedCounterTest.executor": "Run",
     "JUnit.ParallelBubbleSortTest.executor": "Run",
     "JUnit.ParallelEvenBubbleSortTest.executor": "Run",
     "JUnit.RouteTest.executor": "Run",
-    "git-widget-placeholder": "karina-input",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging karina-input",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34da5677-baca-4540-b1a5-7bdd4538f412" name="Changes" comment="" />
+      <created>1759620946576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759620946576</updated>
+      <workItem from="1759620948438" duration="1412000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
