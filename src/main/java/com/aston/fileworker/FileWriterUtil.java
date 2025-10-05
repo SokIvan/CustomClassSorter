@@ -27,7 +27,7 @@ public class FileWriterUtil {
                         car.getLastOwner());
 
                 if (existingLines.contains(newLine)) {
-                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                    System.out.println("Не добавлено (дубликат): " + newLine);
                 } else {
                     pw.println(newLine);
                     existingLines.add(newLine);
@@ -52,7 +52,7 @@ public class FileWriterUtil {
                         driver.getRate());
 
                 if (existingLines.contains(newLine)) {
-                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                    System.out.println("Не добавлено (дубликат): " + newLine);
                 } else {
                     pw.println(newLine);
                     existingLines.add(newLine);
@@ -77,7 +77,7 @@ public class FileWriterUtil {
                         route.getPassengers());
 
                 if (existingLines.contains(newLine)) {
-                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                    System.out.println("Не добавлено (дубликат): " + newLine);
                 } else {
                     pw.println(newLine);
                     existingLines.add(newLine);
