@@ -1,9 +1,11 @@
 package com.aston.functionalClasses.RandomAssembly;
 
 import com.aston.customClasses.Car;
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class RandomCarList extends RandomList {
     private static final int MIN_RELEASE_YEAR = 1980;
@@ -33,6 +35,15 @@ public class RandomCarList extends RandomList {
         }
         return builder.build();
     }
+
+    public static List<Car> createWithStream(){
+        List<Car> cars = new MyArrayList<>();
+        Stream.generate(() -> getInstance())
+                .limit(getIntInRange(MIN_LENGTH, MAX_LENGTH))
+                .forEach(cars::add);
+        return cars;
+    }
+
     private static String getStateNum(){
         char [] stateNum = new char[6];
         for(int i = 0; i < stateNum.length; i++){

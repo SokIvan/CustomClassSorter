@@ -1,9 +1,12 @@
 package com.aston.functionalClasses.RandomAssembly;
 
+import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class RandomDriverList extends RandomList {
 
@@ -35,6 +38,14 @@ public class RandomDriverList extends RandomList {
             builder.setRate(getRate());
         }
         return builder.build();
+    }
+
+    public static List<Driver> createWithStream(){
+        List<Driver> drivers = new MyArrayList<>();
+        Stream.generate(() -> getInstance())
+                .limit(getIntInRange(MIN_LENGTH, MAX_LENGTH))
+                .forEach(drivers::add);
+        return drivers;
     }
 
     private static String getCategory(){

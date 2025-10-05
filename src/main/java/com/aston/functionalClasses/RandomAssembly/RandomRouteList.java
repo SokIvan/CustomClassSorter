@@ -1,11 +1,14 @@
 package com.aston.functionalClasses.RandomAssembly;
+import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
-public class RandomRouteArray extends RandomList{
+public class RandomRouteList extends RandomList{
     private static final int MIN_PASSENGERS = 1;
     private static final int MAX_PASSENGERS = 8;
     private static final Map<String, Integer> ROUTES = Map.of(
@@ -41,5 +44,13 @@ public class RandomRouteArray extends RandomList{
             builder.setPassengers(getIntInRange(MIN_PASSENGERS, MAX_PASSENGERS));
         }
         return builder.build();
+    }
+
+    public static List<Route> createWithStream(){
+        List<Route> routes = new MyArrayList<>();
+        Stream.generate(() -> getInstance())
+                .limit(getIntInRange(MIN_LENGTH, MAX_LENGTH))
+                .forEach(routes::add);
+        return routes;
     }
 }
