@@ -1,6 +1,8 @@
+
 package com.aston.customClasses;
 
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Route {
     private final String driverName;//Имя водителя
@@ -39,12 +41,19 @@ public class Route {
             }
         };
     }
-
-
-
-
-
-
+    public static Comparator<Route> compare() {
+        return new Comparator<Route>() {
+            @Override
+            public int compare(Route route1, Route route2) {
+                if(route1.equals(route2))
+                    return 0;
+                else if (route1.hashCode() > route2.hashCode())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+    }
 
     public static RouteBuilder builder(){
         return new RouteBuilder();
@@ -67,9 +76,31 @@ public class Route {
     public String toString(){
         String distanse = getDistanse()!=-1?(getDistanse()+""):"-Неизвестно-";
         String passengers = getPassengers()!=-1?(getPassengers()+""):"-Неизвестно-";
-        return String.format("Маршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
+        return String.format("\nМаршрут %s\nВодитель: %s\nМашина: %s\nПассажиров: %s\nРасстояние: %s км\n",getRoadName(),getDriverName(),getCarName(),getPassengers(),getDistanse());
     }
 
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(driverName);
+        result = 31 * result + Objects.hashCode(carName);
+        result = 31 * result + Objects.hashCode(roadName);
+        result = 31 * result + distanse;
+        result = 31 * result + passengers;
+        return result;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Route route = (Route) o;
+
+        return distanse == route.distanse &&
+                passengers == route.passengers &&
+                Objects.equals(driverName, route.driverName) &&
+                Objects.equals(carName, route.carName) &&
+                Objects.equals(roadName, route.roadName);
+    }
 
     public int getDistanse() {
         return distanse;
@@ -78,7 +109,6 @@ public class Route {
     public int getPassengers() {
         return passengers;
     }
-
 
     public static class RouteBuilder{
         private String driverName;
@@ -99,10 +129,6 @@ public class Route {
             this.roadName = roadName;
             return this;
         }
-        public Route build(){
-            return new Route(this);
-        }
-
         public void setDistanse(int distanse) {
             this.distanse = distanse;
         }
@@ -110,6 +136,14 @@ public class Route {
         public void setPassengers(int passengers) {
             this.passengers = passengers;
         }
-    }
 
+        public Route build(){
+            if (this.driverName == null || this.carName == null || this.roadName == null)
+                throw new RuntimeException("Зполните все обязательные параметры: имя водителя, модель автомобиля, маршрут");
+            else if(this.distanse < 0)
+                throw new RuntimeException("Дистанция не может быть меньше 0!");
+            else
+                return new Route(this);
+        }
+    }
 }
