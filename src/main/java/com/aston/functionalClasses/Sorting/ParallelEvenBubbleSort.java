@@ -4,125 +4,82 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.ToIntFunction;
 
+/**
+ * Параллельная пузырьковая сортировка только для чётных элементов списка.
+ * Нечётные остаются на своих местах.
+ */
 public class ParallelEvenBubbleSort {
 
-    private static final int THREADS = 2; // минимум 2 потока
+    private static final int THREAD_COUNT = 2;
 
-    /**
-     * Многопоточная пузырьковая сортировка:
-     * - элементы с чётным значением keyExtractor сортируются по comparator
-     * - элементы с нечётным значением остаются на своих местах
-     */
-    public static <T> void parallelEvenBubbleSort(
-            List<T> list,
-            ToIntFunction<T> keyExtractor,
-            Comparator<? super T> comparator
-    ) {
+    public static <T> void parallelEvenBubbleSort(List<T> list,
+                                                  ToIntFunction<T> keyExtractor,
+                                                  Comparator<? super T> comparator) {
         if (list == null || list.size() < 2) return;
 
-        int n = list.size();
-        int mid = n / 2;
-
-        // Разбиваем список на две половины
-        List<T> left = new ArrayList<>(list.subList(0, mid));
-        List<T> right = new ArrayList<>(list.subList(mid, n));
-
-        ExecutorService executor = Executors.newFixedThreadPool(THREADS);
-
-        try {
-            // Запускаем сортировки в потоках
-            Future<?> f1 = executor.submit(() -> bubbleSortEvenOnly(left, keyExtractor, comparator));
-            Future<?> f2 = executor.submit(() -> bubbleSortEvenOnly(right, keyExtractor, comparator));
-
-            // ждём завершения
-            f1.get();
-            f2.get();
-
-            // Сливаем обратно
-            List<T> merged = merge(left, right, keyExtractor, comparator);
-
-            for (int i = 0; i < n; i++) {
-                list.set(i, merged.get(i));
+        // 1️⃣ Собираем чётные элементы
+        List<T> evens = new ArrayList<>();
+        for (T el : list) {
+            if ((keyExtractor.applyAsInt(el) & 1) == 0) {
+                evens.add(el);
             }
+        }
+        if (evens.size() < 2) return;
 
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
-        } finally {
-            executor.shutdown();
+        // 2️⃣ Разбиваем чётные на подсписки и сортируем в потоках
+        int chunkSize = Math.max(1, evens.size() / THREAD_COUNT);
+        ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
+        List<Future<List<T>>> futures = new ArrayList<>();
+
+        for (int i = 0; i < evens.size(); i += chunkSize) {
+            int from = i;
+            int to = Math.min(i + chunkSize, evens.size());
+            List<T> sub = new ArrayList<>(evens.subList(from, to));
+
+            futures.add(executor.submit(() -> {
+                bubbleSort(sub, comparator);
+                return sub;
+            }));
+        }
+
+        // 3️⃣ Собираем отсортированные части
+        List<T> mergedEvens = new ArrayList<>();
+        for (Future<List<T>> future : futures) {
+            try {
+                mergedEvens.addAll(future.get());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        executor.shutdown();
+
+        // 4️⃣ Финальная глобальная сортировка всех чётных
+        bubbleSort(mergedEvens, comparator);
+
+        // ⚠️ 5️⃣ Правильная вставка: заменяем чётные элементы ПО ПОЗИЦИЯМ появления чётных
+        int evenPos = 0;
+        for (int i = 0; i < list.size(); i++) {
+            int value = keyExtractor.applyAsInt(list.get(i));
+            if ((value & 1) == 0 && evenPos < mergedEvens.size()) {
+                list.set(i, mergedEvens.get(evenPos++));
+            }
         }
     }
 
-    /**
-     * Обычная пузырьковая сортировка только по чётным значениям
-     */
-    private static <T> void bubbleSortEvenOnly(
-            List<T> list,
-            ToIntFunction<T> keyExtractor,
-            Comparator<? super T> comparator
-    ) {
+    // 🔹 Вспомогательная пузырьковая сортировка
+    private static <T> void bubbleSort(List<T> list, Comparator<? super T> comparator) {
         int n = list.size();
         boolean swapped;
-
         for (int i = 0; i < n - 1; i++) {
             swapped = false;
             for (int j = 0; j < n - 1 - i; j++) {
-                T a = list.get(j);
-                T b = list.get(j + 1);
-
-                int keyA = keyExtractor.applyAsInt(a);
-                int keyB = keyExtractor.applyAsInt(b);
-
-                // сравниваем только чётные
-                if (keyA % 2 == 0 && keyB % 2 == 0) {
-                    if (comparator.compare(a, b) > 0) {
-                        list.set(j, b);
-                        list.set(j + 1, a);
-                        swapped = true;
-                    }
+                if (comparator.compare(list.get(j), list.get(j + 1)) > 0) {
+                    Collections.swap(list, j, j + 1);
+                    swapped = true;
                 }
             }
             if (!swapped) break;
         }
-    }
-
-    /**
-     * Слияние двух отсортированных частей (учитываем чётность)
-     */
-    private static <T> List<T> merge(
-            List<T> left,
-            List<T> right,
-            ToIntFunction<T> keyExtractor,
-            Comparator<? super T> comparator
-    ) {
-        List<T> result = new ArrayList<>();
-        int i = 0, j = 0;
-
-        while (i < left.size() && j < right.size()) {
-            T a = left.get(i);
-            T b = right.get(j);
-
-            int keyA = keyExtractor.applyAsInt(a);
-            int keyB = keyExtractor.applyAsInt(b);
-
-            if (keyA % 2 != 0) { // нечётный → остаётся на месте
-                result.add(a);
-                i++;
-            } else if (keyB % 2 != 0) { // нечётный → остаётся на месте
-                result.add(b);
-                j++;
-            } else {
-                if (comparator.compare(a, b) <= 0) {
-                    result.add(a);
-                    i++;
-                } else {
-                    result.add(b);
-                    j++;
-                }
-            }
-        }
-
-        while (i < left.size()) result.add(left.get(i++));
-        while (j < right.size()) result.add(right.get(j++));
-        return result;
     }
 }
