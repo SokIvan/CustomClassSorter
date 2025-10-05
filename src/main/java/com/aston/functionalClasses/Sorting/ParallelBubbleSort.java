@@ -1,4 +1,4 @@
-package com.aston.functionalClasses;
+package com.aston.functionalClasses.Sorting;
 
 import java.util.*;
 import java.util.concurrent.*;
