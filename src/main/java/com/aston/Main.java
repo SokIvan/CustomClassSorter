@@ -1,96 +1,134 @@
 package com.aston;
 
+import com.aston.controller.Controller;
 import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
-import com.aston.functionalClasses.Sorting.ParallelBubbleSortStrategy;
-import com.aston.functionalClasses.Sorting.ParallelEvenBubbleSortStrategy;
-import com.aston.functionalClasses.Sorting.QuickSortEvenStrategy;
-import com.aston.functionalClasses.Sorting.SortContext;
+import com.aston.fileworker.ControllerFile;
+import com.aston.fileworker.FileWriterUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //String filename = "C:\\Users\\Master\\Desktop\\Java\\Aston\\CustomClassSorter\\src\\main\\resources\\Standart\\CarFile.txt";
+        Scanner scanner = new Scanner(System.in);
 
-        // --- Cars ---
         List<Car> cars = new ArrayList<>();
-        cars.add(Car.builder().setGosNumber("A111AA").setModel("bmw").setLastOwner("Иванов").setCost(30000).setDate(2015).build());
-        cars.add(Car.builder().setGosNumber("B222BB").setModel("audi").setLastOwner("Петров").setCost(25000).setDate(2012).build());
-        cars.add(Car.builder().setGosNumber("C333CC").setModel("mercedes").setLastOwner("Сидоров").setCost(10000).setDate(2018).build());
-
-        System.out.println("До сортировки (машины):");
-        cars.forEach(System.out::println);
-
-        SortContext<Car> carSortContext = new SortContext<>();
-        carSortContext.setStrategy(new ParallelBubbleSortStrategy<>()); // проверка сортировки пузырьком
-        carSortContext.executeSort(cars, c -> 0, Car.compareByModelCustom());
-
-        System.out.println("\nПосле сортировки по модели машины:");
-        cars.forEach(System.out::println);
-
-        // --- Drivers ---
         List<Driver> drivers = new ArrayList<>();
-        drivers.add(Driver.builder().setName("Иван").setCategory("B").setExperience(15).setAge(40).setRate(4.5).build());
-        drivers.add(Driver.builder().setName("Петр").setCategory("C").setExperience(10).setAge(35).setRate(4.0).build());
-        drivers.add(Driver.builder().setName("Алексей").setCategory("B").setExperience(5).setAge(28).setRate(3.8).build());
-
-        System.out.println("\nДо сортировки (водители):");
-        drivers.forEach(System.out::println);
-
-        SortContext<Driver> driverSortContext = new SortContext<>();
-        driverSortContext.setStrategy(new QuickSortEvenStrategy<>()); // Проверка быстрой сортировки
-        driverSortContext.executeSort(drivers, d -> 0, Driver.compareByExperience());
-
-        System.out.println("\nПосле сортировки водителей по стажу:");
-        drivers.forEach(System.out::println);
-
-
-        // --- Routes ---
         List<Route> routes = new ArrayList<>();
 
-        Route.RouteBuilder r1 = Route.builder();
-        r1.setDriverName("Иван");
-        r1.setCarName("BMW");
-        r1.setRoadName("Москва->СПб");
-        r1.setDistanse(700);   // чётное → сортируется
-        r1.setPassengers(3);
-        routes.add(r1.build());
+        boolean running = true;
 
-        Route.RouteBuilder r2 = Route.builder();
-        r2.setDriverName("Петр");
-        r2.setCarName("Audi");
-        r2.setRoadName("Казань->Уфа");
-        r2.setDistanse(500);   // чётное → сортируется
-        r2.setPassengers(2);
-        routes.add(r2.build());
+        while (running) {
+            System.out.println("\n=== Главное меню ===");
+            System.out.println("1 - Ввести данные о машинах");
+            System.out.println("2 - Ввести данные о маршрутах");
+            System.out.println("3 - Ввести данные о водителях");
+            System.out.println("4 - Показать все данные");
+            System.out.println("5 - Сохранить данные в файл (добавление без дубликатов)");
+            System.out.println("0 - Выход");
+            System.out.print("Выберите действие: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        Route.RouteBuilder r3 = Route.builder();
-        r3.setDriverName("Олег");
-        r3.setCarName("Жигули");
-        r3.setRoadName("Астана->Владивосток");
-        r3.setDistanse(1101);  // нечётное → остаётся на месте
-        r3.setPassengers(2);
-        routes.add(r3.build());
-
-        Route.RouteBuilder r4 = Route.builder();
-        r4.setDriverName("Вадим");
-        r4.setCarName("Волга");
-        r4.setRoadName("Екб->Челябинск");
-        r4.setDistanse(233);   // нечётное → остаётся на месте
-        r4.setPassengers(2);
-        routes.add(r4.build());
-
-        System.out.println("\nДо сортировки (маршруты):");
-        routes.forEach(System.out::println);
-
-        SortContext<Route> routeSortContext = new SortContext<>();
-        routeSortContext.setStrategy(new ParallelEvenBubbleSortStrategy<>()); // проверка сортировки пузырьком для четных
-        routeSortContext.executeSort(routes, Route::getDistanse, Route.compareByDistanceAndPassengersCustom());
-
-        System.out.println("\nПосле сортировки маршрутов (чётные сортируются, нечётные остаются на месте):");
-        routes.forEach(System.out::println);
+            switch (choice) {
+                case 1 -> {
+                    System.out.println("1 - Ввести вручную\n2 - Загрузить из файла");
+                    int subChoice = scanner.nextInt();
+                    scanner.nextLine();
+                    if (subChoice == 1) {
+                        cars = Controller.createCars(scanner);
+                    } else if (subChoice == 2) {
+                        cars = ControllerFile.loadCarsFromFile(scanner, true);
+                        System.out.println(cars);
+                    } else {
+                        System.out.println("Неверный выбор.");
+                    }
+                }
+                case 2 -> {
+                    System.out.println("1 - Ввести вручную\n2 - Загрузить из файла");
+                    int subChoice = scanner.nextInt();
+                    scanner.nextLine();
+                    if (subChoice == 1) {
+                        routes = Controller.createRoutes(scanner);
+                    } else if (subChoice == 2) {
+                        routes = ControllerFile.loadRoutesFromFile(scanner, true);
+                    } else {
+                        System.out.println("Неверный выбор.");
+                    }
+                }
+                case 3 -> {
+                    System.out.println("1 - Ввести вручную\n2 - Загрузить из файла");
+                    int subChoice = scanner.nextInt();
+                    scanner.nextLine();
+                    if (subChoice == 1) {
+                        drivers = Controller.createDrivers(scanner);
+                    } else if (subChoice == 2) {
+                        drivers = ControllerFile.loadDriversFromFile(scanner, true);
+                    } else {
+                        System.out.println("Неверный выбор.");
+                    }
+                }
+                case 4 -> {
+                    System.out.println("\n=== Текущие данные ===");
+                    if (!cars.isEmpty()) {
+                        System.out.println("Машины:");
+                        cars.forEach(System.out::println);
+                    }
+                    if (!drivers.isEmpty()) {
+                        System.out.println("Водители:");
+                        drivers.forEach(System.out::println);
+                    }
+                    if (!routes.isEmpty()) {
+                        System.out.println("Маршруты:");
+                        routes.forEach(System.out::println);
+                    }
+                }
+                case 5 -> {
+                    System.out.println("Выберите, что записать в файл:");
+                    System.out.println("1 - Машины\n2 - Водители\n3 - Маршруты");
+                    int subChoice = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Введите имя файла: ");
+                    String filename = scanner.nextLine();
+                    try {
+                        if (subChoice == 1 && !cars.isEmpty()) {
+                            int added = FileWriterUtil.writeCarsToFile(filename, cars);
+                            if (added > 0) {
+                                System.out.println("Добавлено " + added + " машин(ы) в файл " + filename);
+                            } else {
+                                System.out.println("Новые машины не добавлены: все записи уже существуют в файле.");
+                            }
+                        } else if (subChoice == 2 && !drivers.isEmpty()) {
+                            int added = FileWriterUtil.writeDriversToFile(filename, drivers);
+                            if (added > 0) {
+                                System.out.println("Добавлено " + added + " водител(я/ей) в файл " + filename);
+                            } else {
+                                System.out.println("Новые водители не добавлены: все записи уже существуют в файле.");
+                            }
+                        } else if (subChoice == 3 && !routes.isEmpty()) {
+                            int added = FileWriterUtil.writeRoutesToFile(filename, routes);
+                            if (added > 0) {
+                                System.out.println("Добавлено " + added + " маршрутов в файл " + filename);
+                            } else {
+                                System.out.println("Новые маршруты не добавлены: все записи уже существуют в файле.");
+                            }
+                        } else {
+                            System.out.println("Коллекция пуста или выбор неверен.");
+                        }
+                    } catch (IOException e) {
+                        System.out.println("Ошибка записи: " + e.getMessage());
+                    }
+                }
+                case 0 -> running = false;
+                default -> System.out.println("Некорректный ввод!");
+            }
+        }
+        scanner.close();
+        System.out.println("Программа завершена.");
     }
 }
-
