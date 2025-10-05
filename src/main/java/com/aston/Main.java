@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //String filename = "C:\\Users\\Master\\Desktop\\Java\\Aston\\CustomClassSorter\\src\\main\\resources\\Standart\\CarFile.txt";
         Scanner scanner = new Scanner(System.in);
 
         List<Car> cars = new ArrayList<>();
@@ -42,7 +43,8 @@ public class Main {
                     if (subChoice == 1) {
                         cars = Controller.createCars(scanner);
                     } else if (subChoice == 2) {
-                        cars = ControllerFile.loadCarsFromFile(scanner);
+                        cars = ControllerFile.loadCarsFromFile(scanner, true);
+                        System.out.println(cars);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
@@ -54,7 +56,7 @@ public class Main {
                     if (subChoice == 1) {
                         routes = Controller.createRoutes(scanner);
                     } else if (subChoice == 2) {
-                        routes = ControllerFile.loadRoutesFromFile(scanner);
+                        routes = ControllerFile.loadRoutesFromFile(scanner, true);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
@@ -66,7 +68,7 @@ public class Main {
                     if (subChoice == 1) {
                         drivers = Controller.createDrivers(scanner);
                     } else if (subChoice == 2) {
-                        drivers = ControllerFile.loadDriversFromFile(scanner);
+                        drivers = ControllerFile.loadDriversFromFile(scanner, true);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
