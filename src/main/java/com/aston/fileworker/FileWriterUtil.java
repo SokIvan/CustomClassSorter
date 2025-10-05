@@ -26,13 +26,11 @@ public class FileWriterUtil {
                         car.getCost(),
                         car.getLastOwner());
 
-                if (existingLines.contains(newLine)) {
-                    System.out.println("Не добавлено (дубликат): " + newLine);
-                } else {
+
                     pw.println(newLine);
                     existingLines.add(newLine);
                     addedCount++;
-                }
+
             }
         }
         return addedCount;
@@ -51,13 +49,11 @@ public class FileWriterUtil {
                         driver.getAge(),
                         driver.getRate());
 
-                if (existingLines.contains(newLine)) {
-                    System.out.println("Не добавлено (дубликат): " + newLine);
-                } else {
+
                     pw.println(newLine);
                     existingLines.add(newLine);
                     addedCount++;
-                }
+
             }
         }
         return addedCount;
@@ -76,13 +72,11 @@ public class FileWriterUtil {
                         route.getDistanse(),
                         route.getPassengers());
 
-                if (existingLines.contains(newLine)) {
-                    System.out.println("Не добавлено (дубликат): " + newLine);
-                } else {
+
                     pw.println(newLine);
                     existingLines.add(newLine);
                     addedCount++;
-                }
+
             }
         }
         return addedCount;

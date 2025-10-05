@@ -129,12 +129,14 @@ public class Route {
             this.roadName = roadName;
             return this;
         }
-        public void setDistanse(int distanse) {
+        public RouteBuilder setDistanse(int distanse) {
             this.distanse = distanse;
+            return this;
         }
 
-        public void setPassengers(int passengers) {
+        public RouteBuilder setPassengers(int passengers) {
             this.passengers = passengers;
+            return this;
         }
 
         public Route build(){

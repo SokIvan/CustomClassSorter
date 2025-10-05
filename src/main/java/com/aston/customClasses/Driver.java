@@ -113,8 +113,8 @@ public class Driver {
         private String name;
         private String category;
         private int experience;
-        private int age = -1;
-        private double rate = -1;
+        private int age;
+        private double rate;
 
         public DriverBuilder setName(String name){
             this.name = name;
