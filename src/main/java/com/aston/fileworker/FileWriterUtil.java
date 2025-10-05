@@ -1,60 +1,112 @@
-// com/aston/fileworker/FileWriterUtil.java
 package com.aston.fileworker;
 
 import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class FileWriterUtil {
 
-    // Перезапись файла (не добавление!)
-    public static void writeCarsToFile(String filename, List<Car> cars) throws IOException {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) { // false по умолчанию
+    private static final Locale LOCALE = Locale.US;
+
+    public static int writeCarsToFile(String filename, List<Car> cars) throws IOException {
+        Set<String> existingLines = readExistingLines(filename);
+        int addedCount = 0;
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename, true))) {
             for (Car car : cars) {
-                pw.printf("%s;%s;%d;%d;%s%n",
+                String newLine = String.format(LOCALE, "%s;%s;%d;%d;%s",
                         car.getGosNumber(),
                         car.getModel(),
                         car.getDate(),
                         car.getCost(),
                         car.getLastOwner());
+
+                if (existingLines.contains(newLine)) {
+                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                } else {
+                    pw.println(newLine);
+                    existingLines.add(newLine);
+                    addedCount++;
+                }
             }
         }
+        return addedCount;
     }
 
-    public static void writeDriversToFile(String filename, List<Driver> drivers) throws IOException {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
+    public static int writeDriversToFile(String filename, List<Driver> drivers) throws IOException {
+        Set<String> existingLines = readExistingLines(filename);
+        int addedCount = 0;
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename, true))) {
             for (Driver driver : drivers) {
-                pw.printf("%s;%s;%d;%d;%.2f%n",
+                String newLine = String.format(LOCALE, "%s;%s;%d;%d;%.2f",
                         driver.getName(),
                         driver.getCategory(),
                         driver.getExperience(),
                         driver.getAge(),
                         driver.getRate());
+
+                if (existingLines.contains(newLine)) {
+                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                } else {
+                    pw.println(newLine);
+                    existingLines.add(newLine);
+                    addedCount++;
+                }
             }
         }
+        return addedCount;
     }
 
-    public static void writeRoutesToFile(String filename, List<Route> routes) throws IOException {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
+    public static int writeRoutesToFile(String filename, List<Route> routes) throws IOException {
+        Set<String> existingLines = readExistingLines(filename);
+        int addedCount = 0;
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter(filename, true))) {
             for (Route route : routes) {
-                pw.printf("%s;%s;%s;%d;%d%n",
+                String newLine = String.format(LOCALE, "%s;%s;%s;%d;%d",
                         route.getDriverName(),
                         route.getCarName(),
                         route.getRoadName(),
                         route.getDistanse(),
                         route.getPassengers());
+
+                if (existingLines.contains(newLine)) {
+                    System.out.println("⚠️ Не добавлено (дубликат): " + newLine);
+                } else {
+                    pw.println(newLine);
+                    existingLines.add(newLine);
+                    addedCount++;
+                }
             }
         }
+        return addedCount;
     }
 
-    // Для записи результата поиска — тоже перезапись 
     public static void writeSearchResultToFile(String filename, String result) throws IOException {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filename))) {
             pw.println(result);
         }
+    }
+
+    private static Set<String> readExistingLines(String filename) throws IOException {
+        Set<String> lines = new HashSet<>();
+        if (Files.exists(Paths.get(filename))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    line = line.trim();
+                    if (!line.isEmpty()) {
+                        lines.add(line);
+                    }
+                }
+            }
+        }
+        return lines;
     }
 }

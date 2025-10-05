@@ -18,8 +18,6 @@ public class FileReaderUtil {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length < 3) continue;
-
                 Car.CarBuilder builder = new Car.CarBuilder()
                         .setGosNumber(parts[0])
                         .setModel(parts[1])
@@ -31,7 +29,6 @@ public class FileReaderUtil {
                 if (parts.length > 4 && !parts[4].isEmpty()) {
                     builder.setLastOwner(parts[4]);
                 }
-
                 cars.add(builder.build());
             }
         }
@@ -44,7 +41,6 @@ public class FileReaderUtil {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length < 3) continue;
 
                 Driver.DriverBuilder builder = new Driver.DriverBuilder()
                         .setName(parts[0])
@@ -57,7 +53,6 @@ public class FileReaderUtil {
                 if (parts.length > 4 && !parts[4].isEmpty()) {
                     builder.setRate(Double.parseDouble(parts[4]));
                 }
-
                 drivers.add(builder.build());
             }
         }
@@ -70,8 +65,6 @@ public class FileReaderUtil {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                if (parts.length < 3) continue;
-
                 Route.RouteBuilder builder = new Route.RouteBuilder()
                         .setDriverName(parts[0])
                         .setCarName(parts[1])
@@ -83,7 +76,6 @@ public class FileReaderUtil {
                 if (parts.length > 4 && !parts[4].isEmpty()) {
                     builder.setPassengers(Integer.parseInt(parts[4]));
                 }
-
                 routes.add(builder.build());
             }
         }
