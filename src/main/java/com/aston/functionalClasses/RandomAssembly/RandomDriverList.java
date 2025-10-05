@@ -1,9 +1,12 @@
 package com.aston.functionalClasses.RandomAssembly;
 
+import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class RandomDriverList extends RandomList {
 
@@ -19,18 +22,29 @@ public class RandomDriverList extends RandomList {
     public static List<Driver> create() {
         int length = getIntInRange(MIN_LENGTH, MAX_LENGTH);
         List<Driver> drivers = new ArrayList<>();
-        for (int i = 0; i < length; i++) {
-            Driver.DriverBuilder builder = new Driver.DriverBuilder()
-                    .setName(getName())
-                    .setCategory(getCategory());
-            int age = getAge();
-            builder.setAge(age);
-            builder.setExperience(getExperienceWithValidation(age));
-            if (Math.random() > 0.5) {
-                builder.setRate(getRate());
-            }
-            drivers.add(builder.build());
+        for (int i = 0; i < length; i++)
+            drivers.add(getInstance());
+        return drivers;
+    }
+
+    public static Driver getInstance(){
+        Driver.DriverBuilder builder = new Driver.DriverBuilder()
+                .setName(getName())
+                .setCategory(getCategory());
+        int age = getAge();
+        builder.setAge(age);
+        builder.setExperience(getExperienceWithValidation(age));
+        if (Math.random() > 0.5) {
+            builder.setRate(getRate());
         }
+        return builder.build();
+    }
+
+    public static List<Driver> createWithStream(){
+        List<Driver> drivers = new MyArrayList<>();
+        Stream.generate(() -> getInstance())
+                .limit(getIntInRange(MIN_LENGTH, MAX_LENGTH))
+                .forEach(drivers::add);
         return drivers;
     }
 
