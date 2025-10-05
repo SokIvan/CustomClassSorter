@@ -1,7 +1,11 @@
 package com.aston.customClasses;
 
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
+import java.util.Random;
 
 public class Car {
     private final String gosNumber;//Номер машины
@@ -49,14 +53,27 @@ public class Car {
             }
         };
     }
+    public static Comparator<Car> compare() {
+        // Создаем анонимный класс Comparator
+        return new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                if(car1.equals(car2))
+                    return 0;
+                else if (car1.hashCode() > car2.hashCode())
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+    }
 
     private Car(CarBuilder carBuilder){
-            this.gosNumber = carBuilder.gosNumber;
-            this.model = carBuilder.model;
-            this.date = carBuilder.date;
-            this.cost = carBuilder.cost;
-            this.lastOwner = carBuilder.lastOwner;
-
+        this.gosNumber = carBuilder.gosNumber;
+        this.model = carBuilder.model;
+        this.date = carBuilder.date;
+        this.cost = carBuilder.cost;
+        this.lastOwner = carBuilder.lastOwner;
     }
 
     public static CarBuilder builder(){
@@ -78,13 +95,39 @@ public class Car {
         return cost;
     }
 
-
-// У каждого свое понятие вывода. Сделаете как вам удобнее через Геттеры
+    // У каждого свое понятие вывода. Сделаете как вам удобнее через Геттеры
     @Override
     public String toString(){
         String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
         String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
-        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽",getModel(),getGosNumber(),getDate(),lastOwner,cost);
+        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\n",getModel(),getGosNumber(),getDate(),lastOwner,cost);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = gosNumber != null ? gosNumber.hashCode() : 0;
+        result = 31 * result + (model != null ? model.hashCode() : 0);
+        result = 31 * result + (lastOwner != null ? lastOwner.hashCode() : 0);
+        result = 31 * result + cost;
+        result = 31 * result + date;
+        return result;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return cost == car.cost &&
+                date == car.date &&
+                Objects.equals(gosNumber, car.gosNumber) &&
+                Objects.equals(model, car.model) &&
+                Objects.equals(lastOwner, car.lastOwner);
+    }
+
+    public String toStringWithHash(){
+        String cost = getCost()!=-1?(getCost()+""):"-Неизвестно-";
+        String lastOwner = getLastOwner()!=null?getLastOwner():"-Неизвестно-";
+        return String.format("\nМашина %s\nГос. номер:%s\nГод выпуска:%s год\nПрошлый владелец:%s\nЦена:%s ₽\nHashCode:%s\n",getModel(),getGosNumber(),getDate(),lastOwner,cost, hashCode());
     }
 
     public String getLastOwner() {
@@ -122,13 +165,11 @@ public class Car {
 
         public Car build(){
             if (this.gosNumber!=null && this.model!=null && this.date!=-1){//Кто то просил int, int не проверяется на null
-                                                                           //Допустим -1 недопустимое число, не позволяйте пользователям его вводить
+                //Допустим -1 недопустимое число, не позволяйте пользователям его вводить
                 return new Car(this);
             }
-            return null;
+            else
+                throw new RuntimeException("Зполните все обязательные параметры: Гос. номер, модель и год выпуска!");
         }
-        
     }
-
-
 }
