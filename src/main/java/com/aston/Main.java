@@ -4,6 +4,7 @@ import com.aston.controller.Controller;
 import com.aston.customClasses.Car;
 import com.aston.customClasses.Driver;
 import com.aston.customClasses.Route;
+import com.aston.fileworker.ControllerFile;
 import com.aston.fileworker.FileWriterUtil;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Main {
                     if (subChoice == 1) {
                         cars = Controller.createCars(scanner);
                     } else if (subChoice == 2) {
-                        cars = Controller.loadCarsFromFile(scanner);
+                        cars = ControllerFile.loadCarsFromFile(scanner);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
@@ -53,7 +54,7 @@ public class Main {
                     if (subChoice == 1) {
                         routes = Controller.createRoutes(scanner);
                     } else if (subChoice == 2) {
-                        routes = Controller.loadRoutesFromFile(scanner);
+                        routes = ControllerFile.loadRoutesFromFile(scanner);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
@@ -65,7 +66,7 @@ public class Main {
                     if (subChoice == 1) {
                         drivers = Controller.createDrivers(scanner);
                     } else if (subChoice == 2) {
-                        drivers = Controller.loadDriversFromFile(scanner);
+                        drivers = ControllerFile.loadDriversFromFile(scanner);
                     } else {
                         System.out.println("Неверный выбор.");
                     }
