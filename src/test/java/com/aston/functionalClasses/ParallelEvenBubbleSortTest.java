@@ -1,5 +1,6 @@
 package com.aston.functionalClasses;
 
+import com.aston.functionalClasses.Sorting.ParallelEvenBubbleSort;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

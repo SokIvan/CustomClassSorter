@@ -1,5 +1,6 @@
 package com.aston.functionalClasses.BinarySearching;
 
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
@@ -22,7 +23,7 @@ class BinarySearchByFieldsTest {
     @Test
     void testSearchByFieldFound() {
         BinarySearchByFields<Person, String> search = new BinarySearchByFields<>();
-        ArrayList<Person> list = new ArrayList<>();
+        MyArrayList<Person> list = new MyArrayList<>();
         list.add(new Person("Alice", 30));
         list.add(new Person("Bob", 25));
 
@@ -40,7 +41,7 @@ class BinarySearchByFieldsTest {
     @Test
     void testSearchByFieldNotFound() {
         BinarySearchByFields<Person, String> search = new BinarySearchByFields<>();
-        ArrayList<Person> list = new ArrayList<>();
+        MyArrayList<Person> list = new MyArrayList<>();
         list.add(new Person("Alice", 30));
 
         try {

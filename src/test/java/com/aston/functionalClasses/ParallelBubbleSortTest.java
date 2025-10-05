@@ -1,7 +1,8 @@
 package com.aston.functionalClasses;
 
 import com.aston.customClasses.Car;
-import com.aston.functionalClasses.ParallelBubbleSort;
+
+import com.aston.functionalClasses.Sorting.ParallelBubbleSort;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

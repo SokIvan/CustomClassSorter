@@ -1,5 +1,6 @@
 package com.aston.functionalClasses.BinarySearching;
 
+import com.aston.functionalClasses.StreamArrayList.MyArrayList;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ class BinarySearchTest {
     @Test
     void testBinarySearchFoundCarWithPrint() {
         BinarySearch<String> search = new BinarySearch<>();
-        ArrayList<String> cars = new ArrayList<>();
+        MyArrayList<String> cars = new MyArrayList<>();
 
         // создаём список машинок
         cars.add("BMW");
