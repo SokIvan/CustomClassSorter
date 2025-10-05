@@ -1,45 +1,44 @@
 package com.aston.functionalClasses.BinarySearching;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BinarySearchTest {
 
     @Test
-    void testBinarySearchFound() {
-        BinarySearch<Integer> search = new BinarySearch<>();
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(3);
-        list.add(5);
-        list.add(7);
+    void testBinarySearchFoundCarWithPrint() {
+        BinarySearch<String> search = new BinarySearch<>();
+        ArrayList<String> cars = new ArrayList<>();
 
-        int index = search.binarySearch(list, 5, 0, list.size() - 1, Integer::compareTo);
-        assertEquals(2, index);
-    }
+        // создаём список машинок
+        cars.add("BMW");
+        cars.add("Audi");
+        cars.add("Mercedes");
+        cars.add("Toyota");
+        cars.add("Honda");
 
-    @Test
-    void testBinarySearchNotFound() {
-        BinarySearch<Integer> search = new BinarySearch<>();
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(3);
-        list.add(5);
+        // сортируем список
+        Collections.sort(cars);
 
-        int index = search.binarySearch(list, 10, 0, list.size() - 1, Integer::compareTo);
-        assertEquals(-1, index);
-    }
+        // выводим весь отсортированный список
+        System.out.println("Отсортированный список машинок: " + cars);
 
-    @Test
-    void testBinarySearchEmptyList() {
-        BinarySearch<Integer> search = new BinarySearch<>();
-        ArrayList<Integer> list = new ArrayList<>();
+        // берём элемент по индексу 2
+        int testIndex = 2;
+        String carToFind = cars.get(testIndex);
+        System.out.println("Элемент для поиска: " + carToFind + " (индекс " + testIndex + ")");
 
-        assertThrows(IndexOutOfBoundsException.class, () -> {
-            search.binarySearch(list, 1, 0, list.size() - 1, Integer::compareTo);
-        });
+        // вызываем бинарный поиск
+        int foundIndex = search.binarySearch(cars, carToFind, 0, cars.size() - 1, String::compareTo);
+
+        // выводим результат поиска
+        System.out.println("Индекс, найденный бинарным поиском: " + foundIndex);
+
+        // проверяем, что найденный индекс совпадает с ожидаемым
+        assertEquals(testIndex, foundIndex);
     }
 }

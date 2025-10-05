@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34da5677-baca-4540-b1a5-7bdd4538f412" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomRouteList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/StreamArrayList/MyArrayList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomCarList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomCarList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomDriverList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomDriverList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aston/functionalClasses/RandomAssembly/RandomRouteArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/aston/customClasses/DriverTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/aston/functionalClasses/BinarySearching/BinarySearch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +23,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="33celuvUAmr5yt1fsfAaWqZ1Ns0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,7 +45,7 @@
     "JUnit.ParallelEvenBubbleSortTest.executor": "Run",
     "JUnit.RouteTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging karina-input",
+    "git-widget-placeholder": "karina-input",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,6 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1759620946576</updated>
       <workItem from="1759620948438" duration="1412000" />
+      <workItem from="1759666945252" duration="1610000" />
     </task>
     <servers />
   </component>
