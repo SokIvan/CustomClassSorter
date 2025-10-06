@@ -48,12 +48,9 @@ public class FileWriterUtil {
                         driver.getExperience(),
                         driver.getAge(),
                         driver.getRate());
-
-
                     pw.println(newLine);
                     existingLines.add(newLine);
                     addedCount++;
-
             }
         }
         return addedCount;
