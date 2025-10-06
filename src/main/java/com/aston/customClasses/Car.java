@@ -164,10 +164,8 @@ public class Car {
         }
 
         public Car build(){
-            if (this.gosNumber!=null && this.model!=null && this.date!=-1){//Кто то просил int, int не проверяется на null
-                //Допустим -1 недопустимое число, не позволяйте пользователям его вводить
+            if (!this.gosNumber.isBlank() && !this.model.isBlank() && this.date!=-1)
                 return new Car(this);
-            }
             else
                 throw new RuntimeException("Зполните все обязательные параметры: Гос. номер, модель и год выпуска!");
         }

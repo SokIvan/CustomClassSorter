@@ -21,7 +21,7 @@ public class ControllerFile {
                 cars = FileReaderUtil.readCarsFromFile(filename);
             System.out.println("Загружено " + cars.size() + " машин из файла " + filename);
             return cars;
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Ошибка чтения файла: " + e.getMessage());
             return new ArrayList<>();
         }
@@ -38,7 +38,7 @@ public class ControllerFile {
                 drivers = FileReaderUtil.readDriversFromFile(filename);
             System.out.println("Загружено " + drivers.size() + " водителей из файла " + filename);
             return drivers;
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Ошибка чтения файла: " + e.getMessage());
             return new ArrayList<>();
         }
@@ -55,7 +55,7 @@ public class ControllerFile {
                 routes = FileReaderUtil.readRoutesFromFile(filename);
             System.out.println("Загружено " + routes.size() + " маршрутов из файла " + filename);
             return routes;
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Ошибка чтения файла: " + e.getMessage());
             return new ArrayList<>();
         }
