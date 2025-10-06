@@ -20,7 +20,12 @@ public class Controller {
         List<Car> cars = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             System.out.println("=== Машина " + (i + 1) + " ===");
-            cars.add(getCarInstance(scanner));
+            try{
+                cars.add(getCarInstance(scanner));
+            }
+            catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
         }
 
         System.out.println("Создано " + cars.size() + " машин.");
@@ -35,7 +40,12 @@ public class Controller {
         List<Driver> drivers = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             System.out.println("=== Водитель " + (i + 1) + " ===");
-            drivers.add(getDriverInstance(scanner));
+            try {
+                drivers.add(getDriverInstance(scanner));
+            }
+            catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
         }
 
         System.out.println("Создано " + drivers.size() + " водителей.");
@@ -50,7 +60,12 @@ public class Controller {
         List<Route> routes = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             System.out.println("=== Маршрут " + (i + 1) + " ===");
-            routes.add(getRouteInstance(scanner));
+            try {
+                routes.add(getRouteInstance(scanner));
+            }
+            catch (RuntimeException e){
+                System.out.println(e.getMessage());
+            }
         }
 
         System.out.println("Создано " + routes.size() + " маршрутов.");
@@ -63,33 +78,51 @@ public class Controller {
         scanner.nextLine();
 
         List<Car> cars = new MyArrayList<>();
-        Stream.generate(() -> getCarInstance(scanner))
-                .limit(count)
-                .forEach(cars::add);
+        try {
+            Stream.generate(() -> getCarInstance(scanner))
+                    .limit(count)
+                    .forEach(cars::add);
+        }
+        catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Создано " + cars.size() + " машин.");
         return cars;
     }
 
     public static List<Driver> createDriverWithStream(Scanner scanner){
-        System.out.print("Введите количество машин: ");
+        System.out.print("Введите количество водителей: ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
         List<Driver> drivers = new MyArrayList<>();
-        Stream.generate(() -> getDriverInstance(scanner))
-                .limit(count)
-                .forEach(drivers::add);
+        try {
+            Stream.generate(() -> getDriverInstance(scanner))
+                    .limit(count)
+                    .forEach(drivers::add);
+        }
+        catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Создано " + drivers.size() + " водителей.");
         return drivers;
     }
 
     public static List<Route> createRouteWithStream(Scanner scanner){
-        System.out.print("Введите количество машин: ");
+        System.out.print("Введите количество маршрутов: ");
         int count = scanner.nextInt();
         scanner.nextLine();
 
         List<Route> routes = new MyArrayList<>();
-        Stream.generate(() -> getRouteInstance(scanner))
-                .limit(count)
-                .forEach(routes::add);
+        try {
+            Stream.generate(() -> getRouteInstance(scanner))
+                    .limit(count)
+                    .forEach(routes::add);
+        }
+        catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Создано " + routes.size() + " маршрутов.");
         return routes;
     }
 

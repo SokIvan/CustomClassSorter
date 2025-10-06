@@ -140,7 +140,7 @@ public class Route {
         }
 
         public Route build(){
-            if (this.driverName == null || this.carName == null || this.roadName == null)
+            if (this.driverName.isBlank()|| this.carName.isBlank() || this.roadName.isBlank())
                 throw new RuntimeException("Зполните все обязательные параметры: имя водителя, модель автомобиля, маршрут");
             else if(this.distanse < 0)
                 throw new RuntimeException("Дистанция не может быть меньше 0!");
